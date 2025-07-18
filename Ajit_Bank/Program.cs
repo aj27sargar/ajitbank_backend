@@ -12,6 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "7258";
+builder.WebHost.UseUrls($"http://*:{port}");
+
 // ✅ Configure Swagger with JWT Bearer support
 builder.Services.AddSwaggerGen(options =>
 {
