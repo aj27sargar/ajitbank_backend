@@ -16,7 +16,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 
 # Copy the published output
-COPY --from=build /app/out .
+COPY --from=build /app/Ajit_Bank/out ./
 
 # Use environment variable from Render for port
 ENV ASPNETCORE_URLS=http://+:$PORT
