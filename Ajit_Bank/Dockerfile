@@ -2,12 +2,13 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copy .csproj file and restore dependencies
-COPY *.csproj ./
-RUN dotnet restore
+# Copy .csproj and restore as distinct layers
+COPY Ajit_Bank/*.csproj ./Ajit_Bank/
+RUN dotnet restore ./Ajit_Bank/Ajit_Bank.csproj
 
-# Copy the rest of the code and publish it
-COPY . ./
+# Copy everything else and build
+COPY . .
+WORKDIR /app/Ajit_Bank
 RUN dotnet publish -c Release -o out
 
 # STEP 2: Create the runtime container
