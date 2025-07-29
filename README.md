@@ -78,7 +78,7 @@ All queries are parameterized to prevent SQL injection.
 ### 🔧 Setup Steps
 
 1. **Clone the repository**:
-   ```bash
+ ```bash
    git clone https://github.com/aj27sargar/ajitbank_backend.git
    cd ajitbank_backend
 ````
